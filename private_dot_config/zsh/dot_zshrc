@@ -1,0 +1,56 @@
+## History
+[ -d "${XDG_CACHE_HOME}/zsh" ] || mkdir -p "${XDG_CACHE_HOME}/zsh"
+export HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+declare -r HISTFILE
+export HISTSIZE=50000
+export SAVEHIST=20000
+
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+
+## zplug
+export ZPLUG_HOME="${XDG_DATA_HOME}/zplug"
+source "${ZPLUG_HOME}/init.zsh"
+
+zplug "lib/history", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "lib/completion", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
+
+zplug "geometry-zsh/geometry", at:mnml
+export GEOMETRY_PROMPT_PLUGINS=(exec_time virtualenv git node)
+export PROMPT_GEOMETRY_GIT_TIME=false
+
+zplug "MichaelAquilina/zsh-history-filter"
+export HISTORY_FILTER_EXCLUDE=("Bearer" "youtube-dl")
+
+zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:2
+zplug "zdharma/history-search-multi-word", defer:2
+zplug "zdharma/fast-syntax-highlighting", defer:2
+zplug "tj/n", as:command, use:bin/n
+
+zplug load
+
+## Alias
+alias ccat="pygmentize -g"
+alias vim="nvim"
+alias vi="nvim"
+alias vimdiff="nvim -d"
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin brew"
+alias gst="git status"
+alias gc="git commit --verbose"
+alias gcd="git checkout develop"
+alias gcm="git checkout master"
+alias ls="exa --time-style long-iso"
+alias ll="ls -l"
+alias lrs="ls -s changed -r"
+alias la="exa -lbhHigmuSa --time-style=long-iso --git --color-scale"
+alias -g ...="../.."
+alias -g ....="../../.."
+
