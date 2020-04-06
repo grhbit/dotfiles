@@ -39,6 +39,7 @@ zplug load
 
 ## Alias
 alias ccat="pygmentize -g"
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias vim="nvim"
 alias vi="nvim"
 alias vimdiff="nvim -d"
