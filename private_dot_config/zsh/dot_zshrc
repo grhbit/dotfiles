@@ -13,6 +13,13 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
+## Other settings
+# less
+export LESSHISTFILE=-
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 ## zplug
 export ZPLUG_HOME="${XDG_DATA_HOME}/zplug"
 source "${ZPLUG_HOME}/init.zsh"
@@ -20,7 +27,6 @@ source "${ZPLUG_HOME}/init.zsh"
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
-zplug "plugins/z", from:oh-my-zsh
 
 zplug "geometry-zsh/geometry", at:mnml
 export GEOMETRY_PROMPT_PLUGINS=(exec_time virtualenv git node)
@@ -33,7 +39,6 @@ zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zdharma/history-search-multi-word", defer:2
 zplug "zdharma/fast-syntax-highlighting", defer:2
-zplug "tj/n", as:command, use:bin/n
 
 zplug load
 

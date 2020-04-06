@@ -16,11 +16,35 @@ fi
 
 typeset -gU path
 
+# aws-cli
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
+# GnuPG
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+
+# httpie
+export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
+
+# n
+export N_PREFIX="${XDG_DATA_HOME}/n"
+path+="${N_PREFIX}/bin"
+
+# ncurses
+export TERMINFO="${XDG_DATA_HOME}/terminfo"
+export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
+
+# Node.js
+export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+
+# npm
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+
 # pipx
-if [[ -x $(command -v pipx) ]]; then
+if [[ -d "${XDG_DATA_HOME}/pipx" ]]; then
   export PIPX_HOME="${XDG_DATA_HOME}/pipx"
   export PIPX_BIN_DIR="${PIPX_HOME}/bin"
   path+="${PIPX_BIN_DIR}"
@@ -28,6 +52,8 @@ fi
 
 # rust
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-path+="${CARGO_HOME}/bin"
+if [[ -d "${XDG_DATA_HOME}/cargo" ]]; then
+  export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+  path+="${CARGO_HOME}/bin"
+fi
 
