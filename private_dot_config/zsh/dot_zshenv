@@ -19,6 +19,13 @@ typeset -gU path
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
+# pipx
+if [[ -x $(command -v pipx) ]]; then
+  export PIPX_HOME="${XDG_DATA_HOME}/pipx"
+  export PIPX_BIN_DIR="${PIPX_HOME}/bin"
+  path+="${PIPX_BIN_DIR}"
+fi
+
 # rust
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"

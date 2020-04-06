@@ -17,18 +17,9 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 source "${ZDOTDIR}/.zshenv"
 
 export CACHE_DIR=~/.cache/zsh
-export EDITOR=/usr/local/bin/nvim
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 export N_PREFIX=~/.n
 export NODE_PATH=$N_PREFIX/lib/node_modules
-export PIPX_HOME=~/.local/pipx
-export PIPX_BIN_DIR=~/.local/bin
-export PATH="/usr/local/sbin:$PATH:$N_PREFIX/bin:$PIPX_BIN_DIR"
-export GEOMETRY_PROMPT_PLUGINS=(exec_time virtualenv git node)
-export PROMPT_GEOMETRY_GIT_TIME=false
+export PATH="/usr/local/sbin:$PATH:$N_PREFIX/bin"
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export HISTORY_FILTER_EXCLUDE=("Bearer" "youtube-dl")
-export GPG_TTY=$(tty)
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
