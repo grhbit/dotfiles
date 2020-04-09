@@ -1,28 +1,27 @@
+# vi: ft=zsh
+
+skip_global_compinit=1
+setopt no_global_rcs
+
 ## XDG Setup
-{
-  # XDG Base Directory supports
-  # https://wiki.archlinux.org/index.php/XDG_Base_Directory
-  if [[ -z "${XDG_CONFIG_HOME}" ]]; then
-    export XDG_CONFIG_HOME="${HOME}/.config"
-  fi
-  if [[ -z "${XDG_CACHE_HOME}" ]]; then
-    export XDG_CACHE_HOME="${HOME}/.cache"
-  fi
-  if [[ -z "${XDG_DATA_HOME}" ]]; then
-    export XDG_DATA_HOME="${HOME}/.local/share"
-  fi
-  if [[ -z "${XDG_RUNTIME_DIR}" ]]; then
-    export XDG_RUNTIME_DIR="${TMPDIR:-/tmp}"
-  fi
-}
+# XDG Base Directory supports
+# https://wiki.archlinux.org/index.php/XDG_Base_Directory
+if [[ -z "${XDG_CONFIG_HOME}" ]]; then
+  export XDG_CONFIG_HOME="${HOME}/.config"
+fi
+
+if [[ -z "${XDG_CACHE_HOME}" ]]; then
+  export XDG_CACHE_HOME="${HOME}/.cache"
+fi
+
+if [[ -z "${XDG_DATA_HOME}" ]]; then
+  export XDG_DATA_HOME="${HOME}/.local/share"
+fi
+
+if [[ -z "${XDG_RUNTIME_DIR}" ]]; then
+  export XDG_RUNTIME_DIR="${TMPDIR:-/tmp}"
+fi
 
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 source "${ZDOTDIR}/.zshenv"
-
-export CACHE_DIR=~/.cache/zsh
-export N_PREFIX=~/.n
-export NODE_PATH=$N_PREFIX/lib/node_modules
-export PATH="/usr/local/sbin:$PATH:$N_PREFIX/bin"
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
