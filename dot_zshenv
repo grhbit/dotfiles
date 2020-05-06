@@ -19,7 +19,8 @@ if [[ -z "${XDG_DATA_HOME}" ]]; then
 fi
 
 if [[ -z "${XDG_RUNTIME_DIR}" ]]; then
-  export XDG_RUNTIME_DIR="${TMPDIR:-/tmp}"
+  XDG_RUNTIME_DIR="${TMPDIR:-/tmp}"
+  export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR%/}"
 fi
 
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"

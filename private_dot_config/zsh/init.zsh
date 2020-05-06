@@ -10,20 +10,20 @@ if [ -x '/usr/libexec/path_helper' ]; then
   eval "$(/usr/libexec/path_helper -s)"
 fi
 
-typeset -gU path
+typeset -U path
 
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
+
+# fnm
+export FNM_DIR="${XDG_DATA_HOME}/fnm"
+source <(fnm env --multi --shell=zsh)
 
 # GnuPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
 # httpie
 export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
-
-# n
-export N_PREFIX="${XDG_DATA_HOME}/n"
-path+="${N_PREFIX}/bin"
 
 # ncurses
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
