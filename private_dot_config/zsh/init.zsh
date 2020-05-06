@@ -2,12 +2,14 @@
 
 export LANG='en_US.UTF-8'
 export EDITOR='nvim'
-export TERM='xterm-256color'
+if [[ "${TERM}" != 'alacritty' ]]; then
+  export TERM='xterm-256color'
+fi
 
 umask 022
 
-if [ -x '/usr/libexec/path_helper' ]; then
-  eval "$(/usr/libexec/path_helper -s)"
+if [[ -x '/usr/libexec/path_helper' ]]; then
+  source <(/usr/libexec/path_helper -s)
 fi
 
 typeset -U path
@@ -29,16 +31,24 @@ export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
 
+# Nix
+if [[ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # npm
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 
 # pipx
 export PIPX_HOME="${XDG_DATA_HOME}/pipx"
 export PIPX_BIN_DIR="${PIPX_HOME}/bin"
-path+="${PIPX_BIN_DIR}"
 
 # rust
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-path+="${CARGO_HOME}/bin"
 
+path=(
+  "${PIPX_BIN_DIR}"
+  "${CARGO_HOME}/bin"
+  $path
+)

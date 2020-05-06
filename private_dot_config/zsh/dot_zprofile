@@ -28,6 +28,3 @@ export PROMPT_GEOMETRY_GIT_TIME=false
 # zinit - MichaelAquilina/zsh-history-filter
 export HISTORY_FILTER_EXCLUDE=('Bearer' 'youtube-dl')
 
-# zoxide
-eval "$(command zoxide init zsh)"
-

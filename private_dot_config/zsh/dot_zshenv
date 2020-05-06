@@ -1,6 +1,6 @@
 # vi: ft=zsh
 
 if [[ ${SHLVL} == 1 && ! -o login ]]; then
-  source "${XDG_CONFIG_HOME}/zsh/init.zsh"
+  source "${ZDOTDIR}/init.zsh"
 fi
 

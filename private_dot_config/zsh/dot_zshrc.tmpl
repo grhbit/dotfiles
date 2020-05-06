@@ -14,6 +14,9 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
+source <(starship init zsh --print-full-init)
+source <(zoxide init zsh)
+
 ## zinit
 declare -A ZINIT
 ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
@@ -27,8 +30,7 @@ autoload -Uz _zinit
 zinit lucid for \
   'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh' \
-  ver'mnml' 'geometry-zsh/geometry'
+  'OMZ::lib/completion.zsh'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
@@ -42,11 +44,14 @@ zinit from'gh-r' as'program' lucid for \
   id-as'ripgrep' 'BurntSushi/ripgrep' \
   id-as'vultr-cli' bpick'*64*' 'vultr/vultr-cli'
 
+export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
+
 VAULT_VERSION='1.4.0'
 zinit id-as'vault' as'program' atclone='command unzip -o vault' for \
   "https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_{{ .chezmoi.os }}_{{ .chezmoi.arch }}.zip"
 
 ## Alias
+alias reload="exec ${SHELL} -o no_global_rcs"
 alias ccat='pygmentize -g'
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias vi='nvim'
@@ -61,7 +66,13 @@ alias ls='exa --time-style long-iso'
 alias ll='ls -l'
 alias lrs='ls -s changed -r'
 alias la='exa -lbhHigmuSa --time-style=long-iso --git --color-scale'
-alias zf='zoxide query -i'
+alias zi='zoxide query -i'
+alias za='zoxide add'
+alias zq='zoxide query'
+alias zr='zoxide remove'
 alias -g ...='../..'
 alias -g ....='../../..'
-
+alias root-nix-env='sudo -i nix-env'
+alias root-nix-channel='sudo -i nix-channel'
+alias root-nix-collect-garbage='sudo -i nix-collect-garbage'
+alias root-nix-store='sudo -i nix-store'
