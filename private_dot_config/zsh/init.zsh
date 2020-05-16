@@ -14,12 +14,15 @@ fi
 
 typeset -U path
 
+# asdf
+export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
+export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="${XDG_CONFIG_HOME}/asdf/global-tool-versions"
+source "${ASDF_DATA_DIR}/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
-
-# fnm
-export FNM_DIR="${XDG_DATA_HOME}/fnm"
-source <(fnm env --multi --shell=zsh)
 
 # GnuPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"

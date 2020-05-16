@@ -40,15 +40,9 @@ zinit wait lucid for \
   'MichaelAquilina/zsh-history-filter'
 
 zinit from'gh-r' as'program' lucid for \
-  id-as'fzf-bin' 'junegunn/fzf-bin' \
-  id-as'ripgrep' 'BurntSushi/ripgrep' \
   id-as'vultr-cli' bpick'*64*' 'vultr/vultr-cli'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
-
-VAULT_VERSION='1.4.0'
-zinit id-as'vault' as'program' atclone='command unzip -o vault' for \
-  "https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_{{ .chezmoi.os }}_{{ .chezmoi.arch }}.zip"
 
 ## Alias
 alias reload="exec ${SHELL} -o no_global_rcs"
