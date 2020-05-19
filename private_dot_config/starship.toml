@@ -13,6 +13,7 @@ prompt_order = [
 
   "nodejs",
   "rust",
+  "python",
 
   "jobs",
   "cmd_duration",
@@ -135,7 +136,7 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+disabled = false
 
 [ruby]
 disabled = true
