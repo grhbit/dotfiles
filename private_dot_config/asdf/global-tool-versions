@@ -1,7 +1,7 @@
-deno 1.0.1
-nodejs 12.16.3
-python 3.7.7
-yarn 1.22.4
+deno 1.2.0
+nodejs 12.18.2
+python 3.8.5
 ruby 2.7.1
 java adopt-openjdk-14.0.1+7
-github-cli 0.8.0
+golang 1.14.6
+direnv 2.21.3
