@@ -25,6 +25,9 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # GnuPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
@@ -54,5 +57,6 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 path=(
   "${PIPX_BIN_DIR}"
   "${CARGO_HOME}/bin"
+  ".local/bin"
   $path
 )
