@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+brew bundle --file=- <<EOF
+{{ template "Brewfile" }}
+EOF
+{{ end -}}
