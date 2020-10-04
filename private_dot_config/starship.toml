@@ -2,25 +2,25 @@
 # https://starship.rs/config/
 
 add_newline = false
-prompt_order = [
-  "username",
-  "hostname",
-  "directory",
-  "git_branch",
-  "git_commit",
-  "git_state",
-  "git_status",
+format = """\
+  $username\
+  $hostname\
+  $directory\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
 
-  "nodejs",
-  "rust",
-  "python",
+  $nodejs\
+  $rust\
+  $python\
 
-  "jobs",
-  "cmd_duration",
-  "line_break",
+  $jobs\
+  $cmd_duration\
+  $line_break\
 
-  "character",
-]
+  $character\
+  """
 scan_timeout = 10
 
 [character]
