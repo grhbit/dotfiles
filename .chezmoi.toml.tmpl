@@ -1,0 +1,8 @@
+# vi: ft=toml
+{{ $email := promptString "email" -}}
+{{ $name := promptString "name" -}}
+{{ $signingkey := promptString "signingkey" -}}
+[data]
+email = "{{ $email }}"
+name = "{{ $name }}"
+signingkey = "{{ $signingkey }}"
