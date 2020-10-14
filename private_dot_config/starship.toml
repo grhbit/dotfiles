@@ -17,6 +17,7 @@ format = """\
 
   $jobs\
   $cmd_duration\
+  $status\
   $line_break\
 
   $character\
@@ -60,11 +61,12 @@ disabled = false
 [rust]
 disabled = false
 
-
 [username]
 disabled = false
 show_always = false
 
+[status]
+disabled = false
 
 ## Unused modules
 [aws]
@@ -137,6 +139,7 @@ disabled = true
 
 [python]
 disabled = false
+scan_for_pyfiles = false
 
 [ruby]
 disabled = true
