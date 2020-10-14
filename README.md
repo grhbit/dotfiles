@@ -29,6 +29,12 @@ $ exit # or reload zsh configs (including zshenv)
 ```
 
 # Installation
+## [zinit](https://github.com/zdharma/zinit)
+```shell
+$ mkdir -p "${XDG_DATA_HOME}/zinit"
+$ git clone https://github.com/zdharma/zinit.git "${XDG_DATA_HOME}/zinit/bin"
+```
+
 ## [asdf-vm](https://asfd-vm.com)
 ```shell
 $ asdf plugin add deno direnv github-cli golang java nodejs python ruby yarn
