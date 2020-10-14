@@ -15,7 +15,7 @@ setopt inc_append_history
 setopt share_history
 
 source <(starship init zsh --print-full-init)
-source <(zoxide init zsh)
+source <(zoxide init zsh --no-aliases)
 
 ## zinit
 declare -A ZINIT
@@ -38,9 +38,6 @@ zinit wait lucid for \
   'zdharma/history-search-multi-word' \
   atinit'zpcompinit; zpcdreplay' 'zdharma/fast-syntax-highlighting' \
   'MichaelAquilina/zsh-history-filter'
-
-zinit from'gh-r' as'program' lucid for \
-  id-as'vultr-cli' bpick'*64*' 'vultr/vultr-cli'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
 
@@ -66,7 +63,3 @@ alias zq='zoxide query'
 alias zr='zoxide remove'
 alias -g ...='../..'
 alias -g ....='../../..'
-alias root-nix-env='sudo -i nix-env'
-alias root-nix-channel='sudo -i nix-channel'
-alias root-nix-collect-garbage='sudo -i nix-collect-garbage'
-alias root-nix-store='sudo -i nix-store'
