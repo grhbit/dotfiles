@@ -87,3 +87,6 @@ $ yay
     - Install tools using yay
 - Setup gpg
 - Separate between home and work environment.
+- Separate between headless and desktop environment.
+- Support XDG Base Directory of JetBrains products and Gradle.
+- Support my windows computer.
