@@ -68,6 +68,7 @@ set updatetime=100
 set fillchars=""
 set wildmenu
 set foldlevel=20
+set clipboard^=unnamed,unnamedplus
 
 let mapleader = " "
 
