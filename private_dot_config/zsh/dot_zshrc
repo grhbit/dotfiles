@@ -13,6 +13,7 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
+setopt combining_chars
 
 source <(starship init zsh --print-full-init)
 source <(zoxide init zsh --no-aliases)
