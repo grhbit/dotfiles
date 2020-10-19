@@ -35,6 +35,11 @@ $ mkdir -p "${XDG_DATA_HOME}/zinit"
 $ git clone https://github.com/zdharma/zinit.git "${XDG_DATA_HOME}/zinit/bin"
 ```
 
+## [vim-plug](https://github.com/junegunn/vim-plug)
+```shell
+$ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
 ## [asdf-vm](https://asfd-vm.com)
 ```shell
 $ asdf plugin add deno direnv github-cli golang java nodejs python ruby yarn
