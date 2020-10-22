@@ -77,7 +77,6 @@ cask "steam"
 cask "visual-studio-code"
 cask "zeplin"
 mas "Amphetamine", id: 937984704
-mas "App Language Chooser", id: 451732904
 mas "Bear", id: 1091189122
 mas "DaisyDisk", id: 411643860
 mas "Dashlane", id: 552383089
