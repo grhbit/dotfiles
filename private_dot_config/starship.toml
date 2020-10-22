@@ -18,6 +18,7 @@ format = """\
   $jobs\
   $cmd_duration\
   $status\
+  $shlvl\
   $line_break\
 
   $character\
@@ -64,6 +65,11 @@ disabled = false
 [username]
 disabled = false
 show_always = false
+
+[shlvl]
+disabled = false
+format = "[/lv:$shlvl/]($style)"
+style = "bold blue"
 
 [status]
 disabled = false
