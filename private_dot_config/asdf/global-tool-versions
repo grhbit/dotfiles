@@ -1,9 +1,9 @@
-deno 1.4.6
-nodejs 12.19.0
+deno 1.5.0
+nodejs 14.15.0
 python 3.9.0
 yarn 1.22.10
 ruby 2.7.2
-java corretto-11.0.8.10.1
-github-cli 1.1.0
+java corretto-11.0.9.11.1
+github-cli 1.2.0
 golang 1.15.3
-direnv 2.23.0
+direnv 2.23.1
