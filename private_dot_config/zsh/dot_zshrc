@@ -31,7 +31,9 @@ autoload -Uz _zinit
 zinit lucid for \
   'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh'
+  'OMZ::lib/completion.zsh' \
+  as'program' id-as'msedgedriver' bpick'msedgedriver' extract \
+    'https://msedgedriver.azureedge.net/86.0.622.51/edgedriver_mac64.zip'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
