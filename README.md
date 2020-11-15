@@ -91,12 +91,10 @@ $ yay
     - Make `$XDG_DATA_HOME/zsh` directory for history
     - Install tools using yay
 - Setup gpg
-- Separate between home and work environment.
 - Separate between headless and desktop environment.
 - Support XDG Base Directory of JetBrains products and Gradle.
 - Support my windows computer.
 - Consider using [paru](https://github.com/Morganamilo/paru) instead of `yay`.
     - :+1: It can be installed by cargo.
     - :+1: Written in Pure Rust.
-    - :-1: Its major version is `0`. unstable.
 
