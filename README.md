@@ -52,6 +52,12 @@ $ NODEJS_CHECK_SIGNATURES=no asdf install
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
 ```
 
+## [Keybase](https://keybase.io)
+```shell
+$ keybase pgp export | gpg --import # import public key
+$ keybase pgp export --secret | gpg --allow-secret-key --import # import private key
+```
+
 # Needs to update periodically
 
 ## [zinit](https://github.com/zdharma/zinit)
