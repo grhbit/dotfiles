@@ -40,9 +40,10 @@ $ git clone https://github.com/zdharma/zinit.git "${XDG_DATA_HOME}/zinit/bin"
 $ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
-## [asdf-vm](https://asfd-vm.com)
+## [asdf-vm](https://asdf-vm.com)
 ```shell
-$ asdf plugin add deno direnv github-cli golang java nodejs python ruby yarn
+$ git clone https://github.com/asdf-vm/asdf.git "${ASDF_DATA_DIR}" && cd "${ASDF_DATA_DIR}" && git checkout "$(git describe --abbrev=0 --tags)"
+$ for plugin in deno direnv github-cli golang java nodejs python ruby yarn; do asdf plugin-add $plugin; done
 $ NODEJS_CHECK_SIGNATURES=no asdf install
 ```
 
