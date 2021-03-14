@@ -15,18 +15,23 @@ fi
 typeset -U path
 
 # asdf
-export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
-export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="${XDG_CONFIG_HOME}/asdf/global-tool-versions"
-export ASDF_SKIP_RESHIM=1
-source "${ASDF_DATA_DIR}/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
+export ASDF_DIR="${XDG_DATA_HOME}/asdf"
+if [[ -f "${ASDF_DIR}/asdf.sh" ]]; then
+  export ASDF_DATA_DIR="${ASDF_DIR}"
+  export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
+  export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="${XDG_CONFIG_HOME}/asdf/global-tool-versions"
+  export ASDF_SKIP_RESHIM=1
+  source "${ASDF_DIR}/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
 # direnv
-eval "$(direnv hook zsh)"
+if (( $+commands[direnv] )); then
+  eval "$(direnv hook zsh)"
+fi
 
 # GnuPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
