@@ -12,3 +12,5 @@ set highlightedyank
 " Key mappings
 let mapleader = " "
 
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+
