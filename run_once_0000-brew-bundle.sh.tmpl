@@ -1,6 +1,11 @@
 {{ if eq .chezmoi.os "darwin" -}}
-#!/usr/bin/env bash
-brew bundle --file=- <<EOF
-{{ template "Brewfile" }}
+#!/usr/bin/env zsh
+brew bundle --no-upgrade --no-lock --file=- <<EOF
+{{ template "Brewfile-Essentials" }}
+{{- if (hasSuffix "@gmail.com" .email) -}}
+{{ template "Brewfile-Home" }}
+{{- else -}}
+{{ template "Brewfile-Work" }}
+{{- end -}}
 EOF
 {{ end -}}
