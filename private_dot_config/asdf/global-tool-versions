@@ -4,6 +4,5 @@ python 3.9.0
 yarn 1.22.10
 ruby 2.7.2
 java corretto-11.0.9.11.1
-github-cli 1.2.0
 golang 1.15.3
 direnv 2.23.1
