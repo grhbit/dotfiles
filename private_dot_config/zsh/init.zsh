@@ -23,9 +23,6 @@ if [[ -f "${ASDF_DIR}/asdf.sh" ]]; then
   export ASDF_SKIP_RESHIM=1
   source "${ASDF_DIR}/asdf.sh"
   fpath=(${ASDF_DIR}/completions $fpath)
-
-  # asdf-java
-  source "${ASDF_DATA_DIR}/plugins/java/set-java-home.zsh"
 fi
 
 # ccache
