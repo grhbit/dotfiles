@@ -30,7 +30,7 @@ export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
 # direnv
 if (( $+commands[direnv] )); then
-  eval "$(direnv hook zsh)"
+  source <(direnv hook zsh)
 fi
 
 # GnuPG
@@ -60,6 +60,6 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 path=(
   "${PIPX_BIN_DIR}"
   "${CARGO_HOME}/bin"
-  ".local/bin"
+  "${HOME}/.local/bin"
   $path
 )

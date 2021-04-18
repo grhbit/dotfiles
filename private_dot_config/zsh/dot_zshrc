@@ -15,7 +15,6 @@ setopt inc_append_history
 setopt share_history
 setopt combining_chars
 
-source <(starship init zsh --print-full-init)
 source <(zoxide init zsh --no-aliases)
 
 ## zinit
@@ -32,8 +31,10 @@ zinit lucid for \
   'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
-  as'program' id-as'msedgedriver' bpick'msedgedriver' extract \
-    'https://msedgedriver.azureedge.net/86.0.622.51/edgedriver_mac64.zip'
+  'romkatv/zsh-prompt-benchmark'
+
+zinit lucid atload"!source ${ZDOTDIR}/.p10k.zsh" lucid for \
+  'romkatv/powerlevel10k'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
@@ -43,10 +44,12 @@ zinit wait lucid for \
   'MichaelAquilina/zsh-history-filter'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 ## Alias
 alias reload="exec ${SHELL} -o no_global_rcs"
-alias ccat='pygmentize -g'
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias vi='nvim'
 alias vim='nvim'
@@ -66,3 +69,4 @@ alias zq='zoxide query'
 alias zqi='zoxide query -i'
 alias -g ...='../..'
 alias -g ....='../../..'
+
