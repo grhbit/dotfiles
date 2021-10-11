@@ -70,3 +70,7 @@ alias zqi='zoxide query -i'
 alias -g ...='../..'
 alias -g ....='../../..'
 
+if [ -f "./.zshrc.local" ]; then
+  source "./.zshrc.local"
+fi
+
