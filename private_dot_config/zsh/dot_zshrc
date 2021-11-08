@@ -39,14 +39,13 @@ zinit lucid atload"!source ${ZDOTDIR}/.p10k.zsh" lucid for \
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
   'zsh-users/zsh-history-substring-search' \
-  'zdharma/history-search-multi-word' \
-  atinit'zpcompinit; zpcdreplay' 'zdharma/fast-syntax-highlighting' \
+  'zdharma-continuum/history-search-multi-word' \
+  atinit'zpcompinit; zpcdreplay' 'zdharma-continuum/fast-syntax-highlighting' \
   'MichaelAquilina/zsh-history-filter'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
-export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 ## Alias
 alias reload="exec ${SHELL} -o no_global_rcs"
