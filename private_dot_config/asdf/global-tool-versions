@@ -1,8 +1,7 @@
-deno 1.5.0
-nodejs 14.15.0
+deno 1.14.0
+nodejs 14.18.1
 python 3.9.0
-yarn 1.22.10
 ruby 2.7.2
-java corretto-11.0.9.11.1
-golang 1.15.3
-direnv 2.23.1
+java corretto-11.0.10.9.1
+golang 1.17.3
+direnv 2.28.0
