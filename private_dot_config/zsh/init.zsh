@@ -53,6 +53,8 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
+# solana
+export SOLANA_BIN="${XDG_DATA_HOME}/solana/install/active_release/bin"
 
 # volta
 export VOLTA_HOME="${XDG_DATA_HOME}/volta"
@@ -60,6 +62,7 @@ export VOLTA_HOME="${XDG_DATA_HOME}/volta"
 path=(
   "${CARGO_HOME}/bin"
   "${HOME}/.local/bin"
+  "${SOLANA_BIN}"
   "${VOLTA_HOME}/bin"
   $path
 )
