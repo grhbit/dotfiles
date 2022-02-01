@@ -1,5 +1,4 @@
-deno 1.14.0
-nodejs 14.18.1
+deno 1.17.3
 python 3.9.0
 ruby 2.7.2
 java corretto-11.0.10.9.1
