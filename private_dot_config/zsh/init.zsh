@@ -49,18 +49,15 @@ export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
 # npm
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 
-# pipx
-export PIPX_HOME="${XDG_DATA_HOME}/pipx"
-export PIPX_BIN_DIR="${PIPX_HOME}/bin"
-
 # rust
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
+
 # volta
 export VOLTA_HOME="${XDG_DATA_HOME}/volta"
+
 path=(
-  "${PIPX_BIN_DIR}"
   "${CARGO_HOME}/bin"
   "${HOME}/.local/bin"
   "${VOLTA_HOME}/bin"
