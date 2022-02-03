@@ -17,6 +17,8 @@ setopt combining_chars
 
 source <(zoxide init zsh --no-aliases)
 
+source <(starship init zsh)
+
 ## zinit
 declare -A ZINIT
 ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
@@ -32,9 +34,6 @@ zinit lucid for \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
   'romkatv/zsh-prompt-benchmark'
-
-zinit lucid atload"!source ${ZDOTDIR}/.p10k.zsh" lucid for \
-  'romkatv/powerlevel10k'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \

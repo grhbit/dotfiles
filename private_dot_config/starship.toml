@@ -1,0 +1,129 @@
+# Starship configurations
+# https://starship.rs/config/
+
+add_newline = false
+format = """\
+  $username\
+  $hostname\
+  $directory\
+  $git_branch\
+  $git_commit\
+  $git_state\
+  $git_status\
+
+  $nodejs\
+  $rust\
+
+  $jobs\
+  $cmd_duration\
+  $status\
+  $shlvl\
+  $line_break\
+
+  $character\
+  """
+scan_timeout = 10
+
+[cmd_duration]
+disabled = false
+min_time = 1000
+
+[directory]
+disabled = false
+truncation_length = 5
+truncate_to_repo = true
+
+[git_branch]
+disabled = false
+
+[git_commit]
+disabled = false
+
+[git_state]
+disabled = false
+
+[git_status]
+disabled = false
+
+[jobs]
+disabled = false
+
+[line_break]
+disabled = false
+
+[nodejs]
+disabled = false
+
+[rust]
+disabled = false
+
+[username]
+disabled = false
+show_always = false
+
+[shlvl]
+disabled = false
+format = "[/lv:$shlvl/]($style)"
+style = "bold blue"
+
+[status]
+disabled = false
+
+## Unused modules
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[env_var]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
+detect_extensions = []
+
+[ruby]
+disabled = true
+
+[time]
+disabled = true
+
