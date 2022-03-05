@@ -1,11 +1,9 @@
 # vi: ft=zsh
-
 ## History
 export HISTFILE="${XDG_DATA_HOME}/zsh/history"
 declare -r HISTFILE
 export HISTSIZE=50000
 export SAVEHIST=20000
-
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
@@ -14,10 +12,6 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 setopt combining_chars
-
-source <(zoxide init zsh --no-aliases)
-
-source <(starship init zsh)
 
 ## zinit
 declare -A ZINIT
@@ -29,11 +23,79 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit lucid for \
+zinit for \
   'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
   'romkatv/zsh-prompt-benchmark'
+zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
+  light-mode id-as'crates/bat' \
+    atclone'cargo install bat' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/cargo-edit' \
+    atclone'cargo install cargo-edit' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/cargo-update' \
+    atclone'cargo install cargo-update' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/dog' \
+    atclone'cargo install --git https://github.com/ogham/dog dog' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/exa' \
+    atclone'cargo install exa' \
+    atload'alias ls="exa --time-style long-iso";
+           alias ll="ls -l";
+           alias la="exa -lbhHigmuSa --time-style=long-iso --git --color-scale"' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/fcp' \
+    atclone'cargo install fcp' \
+    atload'alias cp=fcp' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/fd-find' \
+    atclone'cargo install fd-find' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/git-delta' \
+    atclone'cargo install git-delta' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/gitui' \
+    atclone'cargo install gitui' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/hexyl' \
+    atclone'cargo install hexyl' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/hyperfine' \
+    atclone'cargo install hyperfine' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/navi' \
+    atclone'cargo install navi' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/nomino' \
+    atclone'cargo install nomino' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/ripgrep' \
+    atclone'cargo install ripgrep' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/starship' \
+    atclone'cargo install starship; starship init zsh > init.zsh' \
+    src'init.zsh' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/tealdeer' \
+    atclone'cargo install tealdeer' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/tokei' \
+    atclone'cargo install tokei' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/xh' \
+    atclone'cargo install xh' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/zoxide' \
+    atclone'cargo install zoxide; zoxide init zsh --no-aliases > init.zsh' \
+    src'init.zsh' \
+    atload'alias zi=__zoxide_zi;
+           alias z=__zoxide_z;
+           alias zq="zoxide query";
+           alias zqi="zoxide query -i"' \
+    'zdharma-continuum/null'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
@@ -57,14 +119,6 @@ alias gst='git status'
 alias gc='git commit --verbose'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias ls='exa --time-style long-iso'
-alias ll='ls -l'
-alias lrs='ls -s changed -r'
-alias la='exa -lbhHigmuSa --time-style=long-iso --git --color-scale'
-alias z='__zoxide_z'
-alias zi='__zoxide_zi'
-alias zq='zoxide query'
-alias zqi='zoxide query -i'
 alias -g ...='../..'
 alias -g ....='../../..'
 
