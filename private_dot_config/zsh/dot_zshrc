@@ -67,7 +67,7 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
     atclone'cargo install hyperfine' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/navi' \
-    atclone'cargo install navi' \
+    atclone'cargo install --locked navi' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/nomino' \
     atclone'cargo install nomino' \
