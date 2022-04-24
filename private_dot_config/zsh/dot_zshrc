@@ -13,13 +13,15 @@ setopt inc_append_history
 setopt share_history
 setopt combining_chars
 
+[ -d "${XDG_DATA_HOME}/zsh" ] || mkdir -p "${XDG_DATA_HOME}/zsh"
+
 ## zinit
 declare -A ZINIT
-ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
+ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 ZINIT[COMPINIT_OPTS]='-C'
 
-source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -125,4 +127,3 @@ alias -g ....='../../..'
 if [ -f "./.zshrc.local" ]; then
   source "./.zshrc.local"
 fi
-

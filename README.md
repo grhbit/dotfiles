@@ -29,10 +29,10 @@ $ exit # or reload zsh configs (including zshenv)
 ```
 
 # Installation
-## [zinit](https://github.com/zdharma/zinit)
+## [zinit](https://github.com/zdharma-continuum/zinit.git)
 ```shell
-$ mkdir -p "${XDG_DATA_HOME}/zinit"
-$ git clone https://github.com/zdharma/zinit.git "${XDG_DATA_HOME}/zinit/bin"
+$ mkdir -p "$(dirname $ZINIT_HOME)"
+$ git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 ```
 
 ## [vim-plug](https://github.com/junegunn/vim-plug)
