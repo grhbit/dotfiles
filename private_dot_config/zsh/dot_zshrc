@@ -116,7 +116,6 @@ alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias vi='nvim'
 alias vim='nvim'
 alias vimdiff='nvim -d'
-alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin brew'
 alias gst='git status'
 alias gc='git commit --verbose'
 alias gcd='git checkout develop'
