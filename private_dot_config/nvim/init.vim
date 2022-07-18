@@ -52,6 +52,10 @@ let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '_'
 " }}
 
+" vim-markdown {{
+let g:vim_markdown_conceal = 0
+" }}
+
 syntax on
 set number
 set splitright
