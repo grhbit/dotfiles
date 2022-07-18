@@ -62,10 +62,20 @@ asdf install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
 ```
 
-## [Keybase](https://keybase.io)
+## [Keybase](https://keybase.io) or GnuPG
 ```shell
+# Keybase
 keybase pgp export | gpg --import # import public key
 keybase pgp export --secret | gpg --allow-secret-key --import # import private key
+
+# GnuPG
+## export keys
+gpg --output public.pgp --armor [email]
+gpg --output private.pgp --armor --export-secret-keys [email]
+
+## import keys
+gpg --import private.pgp
+gpg --import public.pgp
 ```
 
 # Needs to update periodically
