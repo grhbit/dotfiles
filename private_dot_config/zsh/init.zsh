@@ -13,6 +13,7 @@ if [[ -x '/usr/libexec/path_helper' ]]; then
 fi
 
 typeset -U path
+typeset -U manpath
 
 # asdf
 export ASDF_DIR="${XDG_DATA_HOME}/asdf"
@@ -21,7 +22,7 @@ if [[ -f "${ASDF_DIR}/asdf.sh" ]]; then
   export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
   export ASDF_SKIP_RESHIM=1
   source "${ASDF_DIR}/asdf.sh"
-  fpath=(${ASDF_DIR}/completions $fpath)
+  fpath=("${ASDF_DIR}/completions" $fpath)
 fi
 
 # ccache
@@ -38,6 +39,19 @@ export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 # Gradle
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 
+# Homebrew
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  export HOMEBREW_PREFIX="/opt/homebrew";
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+  export HOMEBREW_REPOSITORY="/opt/homebrew";
+  path+=(
+    "${HOMEBREW_PREFIX}/bin"
+    "${HOMEBREW_PREFIX}/sbin"
+  )
+  fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
+  manpath=("${HOMEBREW_PREFIX}/share/man" $manpath)
+fi
+
 # httpie
 export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 
@@ -51,17 +65,24 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 # rust
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+if [[ -d "${CARGO_HOME}/bin" ]]; then
+  path+="${CARGO_HOME}/bin"
+fi
 
 # solana
 export SOLANA_BIN="${XDG_DATA_HOME}/solana/install/active_release/bin"
+if [[ -d "${SOLANA_BIN}" ]]; then
+  path+="${SOLANA_BIN}"
+fi
 
 # volta
 export VOLTA_HOME="${XDG_DATA_HOME}/volta"
+if [[ -d "${VOLTA_HOME}/bin" ]]; then
+  path+="${VOLTA_HOME}/bin"
+fi
 
 path=(
-  "${CARGO_HOME}/bin"
   "${HOME}/.local/bin"
-  "${SOLANA_BIN}"
-  "${VOLTA_HOME}/bin"
+  "${HOME}/.rd/bin"
   $path
 )
