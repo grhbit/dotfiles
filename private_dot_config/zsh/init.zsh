@@ -55,6 +55,10 @@ fi
 # httpie
 export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 
+# krew
+export KREW_ROOT="${XDG_DATA_HOME}/krew"
+path+="${KREW_ROOT}/bin"
+
 # ncurses
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
