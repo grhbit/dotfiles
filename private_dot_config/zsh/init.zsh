@@ -73,6 +73,12 @@ if [[ -d "${CARGO_HOME}/bin" ]]; then
   path+="${CARGO_HOME}/bin"
 fi
 
+# sdkman
+export SDKMAN_DIR="${XDG_DATA_HOME}/sdkman"
+if [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+  source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+fi
+
 # solana
 export SOLANA_BIN="${XDG_DATA_HOME}/solana/install/active_release/bin"
 if [[ -d "${SOLANA_BIN}" ]]; then
