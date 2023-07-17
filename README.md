@@ -47,7 +47,7 @@ curl https://get.volta.sh | bash -s -- --skip-setup
 
 ## [Solana](https://solana.com)
 ```shell
-curl --proto '=https' --tlsv1.2 -sSfL https://release.solana.com/stable/install | sh -s -- --no-modify-path
+curl --proto '=https' --tlsv1.2 -sSfL https://release.solana.com/stable/install | sh -s -- --no-modify-path stable
 ```
 
 ## [asdf-vm](https://asdf-vm.com)
