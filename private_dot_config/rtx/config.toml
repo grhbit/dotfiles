@@ -1,0 +1,10 @@
+[tools]
+direnv = "latest"
+go = "latest"
+
+[settings]
+legacy_version_file = true
+
+always_keep_download = false
+always_keep_install = false
+
