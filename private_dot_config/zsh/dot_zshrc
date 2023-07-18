@@ -40,8 +40,8 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/cargo-update' \
     atclone'cargo install cargo-update' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/dog' \
-    atclone'cargo install --git https://github.com/ogham/dog dog' \
+  light-mode id-as'crates/cargo-outdated' \
+    atclone'cargo install --locked cargo-outdated' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/exa' \
     atclone'cargo install exa' \
@@ -74,8 +74,14 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/nomino' \
     atclone'cargo install nomino' \
     'zdharma-continuum/null' \
+  light-mode id-as'crates/onefetch' \
+    atclone'cargo install onefetch' \
+    'zdharma-continuum/null' \
   light-mode id-as'crates/ripgrep' \
     atclone'cargo install ripgrep' \
+    'zdharma-continuum/null' \
+  light-mode id-as'crates/sd' \
+    atclone'cargo install sd' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/starship' \
     atclone'cargo install starship; starship init zsh > init.zsh' \
@@ -123,6 +129,6 @@ alias gcm='git checkout master'
 alias -g ...='../..'
 alias -g ....='../../..'
 
-if [ -f "./.zshrc.local" ]; then
-  source "./.zshrc.local"
+if [ -f "${ZDOTDIR}/.zshrc.local" ]; then
+  source "${ZDOTDIR}/.zshrc.local"
 fi

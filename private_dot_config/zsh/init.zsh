@@ -52,9 +52,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]]; then
   manpath=("${HOMEBREW_PREFIX}/share/man" $manpath)
 fi
 
-# httpie
-export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
-
 # krew
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
 path+="${KREW_ROOT}/bin"
