@@ -80,6 +80,10 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/ripgrep' \
     atclone'cargo install ripgrep' \
     'zdharma-continuum/null' \
+  light-mode id-as'crates/rtx-cli' \
+    atclone'cargo install rtx-cli; rtx activate zsh > init.zsh' \
+    src'init.zsh' \
+    'zdharma-continuum/null' \
   light-mode id-as'crates/sd' \
     atclone'cargo install sd' \
     'zdharma-continuum/null' \

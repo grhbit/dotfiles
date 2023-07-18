@@ -15,16 +15,6 @@ fi
 typeset -U path
 typeset -U manpath
 
-# asdf
-export ASDF_DIR="${XDG_DATA_HOME}/asdf"
-if [[ -f "${ASDF_DIR}/asdf.sh" ]]; then
-  export ASDF_DATA_DIR="${ASDF_DIR}"
-  export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
-  export ASDF_SKIP_RESHIM=1
-  source "${ASDF_DIR}/asdf.sh"
-  fpath=("${ASDF_DIR}/completions" $fpath)
-fi
-
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 

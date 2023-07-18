@@ -50,13 +50,6 @@ curl https://get.volta.sh | bash -s -- --skip-setup
 curl --proto '=https' --tlsv1.2 -sSfL https://release.solana.com/stable/install | sh -s -- --no-modify-path stable
 ```
 
-## [asdf-vm](https://asdf-vm.com)
-```shell
-git clone https://github.com/asdf-vm/asdf.git "${ASDF_DIR}" && cd "${ASDF_DIR}" && git checkout "$(git describe --abbrev=0 --tags)"
-for plugin in deno direnv golang java python ruby; do asdf plugin-add $plugin; done
-asdf install
-```
-
 ## [rustup](https://rustup.rs)
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
@@ -97,9 +90,6 @@ rustup update
 nvim +PlugUpgrade +PlugUpdate +CocUpdate # +qall (if needed)
 ```
 
-## [asdf-vm](https://asdf-vm.com)
-You need to check and to update each plugin manually. (Please let me know how to update automatically.)
-
 ## [Homebrew](https://brew.sh)
 **macOS**
 ```shell
@@ -114,11 +104,9 @@ yay
 
 # TODO
 - Add scripts
-    - Install asdf's plugins
     - Make `$XDG_DATA_HOME/zsh` directory for history
     - Install tools using yay
 - Setup age ~~gpg~~
 - Separate between headless and desktop environment.
 - Support XDG Base Directory of JetBrains products and Gradle.
 - Support my windows computer.
-
