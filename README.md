@@ -10,19 +10,19 @@ OS: macOS, Arch Linux
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-## [yay](https://github.com/Jguer/yay)
+## [paru](https://github.com/Morganamilo/paru)
 **Arch Linux**
 ```shell
 pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 ```
 
 ## [chezmoi](https://www.chezmoi.io)
 ```shell
 brew install chezmoi # on macOS
-yay -S chezmoi # on Arch Linux
+paru -S chezmoi # on Arch Linux
 
 chezmoi init https://github.com/username/dotfiles.git
 exit # or reload zsh configs (including zshenv)
@@ -96,16 +96,16 @@ nvim +PlugUpgrade +PlugUpdate +CocUpdate # +qall (if needed)
 brew update && brew upgrade && brew upgrade --cask
 ```
 
-## [yay](https://github.com/Jguer/yay)
+## [paru](https://github.com/Morganamilo/paru)
 **Arch Linux**
 ```shell
-yay
+paru
 ```
 
 # TODO
 - Add scripts
     - Make `$XDG_DATA_HOME/zsh` directory for history
-    - Install tools using yay
+    - Install tools using paru
 - Setup age ~~gpg~~
 - Separate between headless and desktop environment.
 - Support XDG Base Directory of JetBrains products and Gradle.
