@@ -1,5 +1,6 @@
 # Starship configurations
 # https://starship.rs/config/
+"$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 format = """\
@@ -11,6 +12,7 @@ format = """\
   $git_state\
   $git_status\
 
+  $kubernetes\
   $nodejs\
   $rust\
 
@@ -27,6 +29,7 @@ scan_timeout = 10
 [cmd_duration]
 disabled = false
 min_time = 1000
+show_milliseconds = true
 
 [directory]
 disabled = false
@@ -51,11 +54,16 @@ disabled = false
 [line_break]
 disabled = false
 
+[kubernetes]
+disabled = false
+
 [nodejs]
 disabled = false
+detect_files = ["package.json"]
 
 [rust]
 disabled = false
+detect_extensions = []
 
 [username]
 disabled = false
@@ -70,9 +78,6 @@ style = "bold blue"
 disabled = false
 
 ## Unused modules
-[aws]
-disabled = true
-
 [battery]
 disabled = true
 full_symbol = ""
@@ -87,43 +92,6 @@ style = "bold red"
 threshold = 50
 style = "bold yellow"
 
-[docker_context]
-disabled = true
-
-[dotnet]
-disabled = true
-
-[env_var]
-disabled = true
-
-[golang]
-disabled = true
-
-[java]
-disabled = true
-
-[kubernetes]
-disabled = true
-
-[memory_usage]
-disabled = true
-
-[hg_branch]
-disabled = true
-
-[nix_shell]
-disabled = true
-
-[package]
-disabled = true
-
 [python]
 disabled = true
 detect_extensions = []
-
-[ruby]
-disabled = true
-
-[time]
-disabled = true
-
