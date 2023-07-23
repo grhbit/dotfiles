@@ -1,0 +1,22 @@
+{{-if eq .chezmoi.os "darwin" -}}
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+
+brew "openssl@3"
+brew "chezmoi"
+brew "cmake"
+brew "fzf"
+brew "gnupg"
+brew "htop"
+brew "iproute2mac"
+brew "jq"
+brew "neovim"
+brew "pinentry-mac"
+brew "tmux"
+
+cask "font-cascadia-code"
+cask "font-pretendard"
+cask "iterm2"
+cask "microsoft-edge"
+cask "visual-studio-code"
+{{ end -}}
