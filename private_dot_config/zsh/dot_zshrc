@@ -30,6 +30,8 @@ zinit for \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
   'romkatv/zsh-prompt-benchmark'
+
+# cargo
 zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/bat' \
     atclone'cargo install bat' \
@@ -107,6 +109,13 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
            alias z=__zoxide_z;
            alias zq="zoxide query";
            alias zqi="zoxide query -i"' \
+    'zdharma-continuum/null'
+
+# rtx
+zinit as'null' has'rtx' run-atpull atpull'%atclone' for \
+  light-mode id-as'rtx/direnv' \
+    src'init.zsh' \
+    atclone'rtx exec --install-missing direnv -- direnv hook zsh > init.zsh' \
     'zdharma-continuum/null'
 
 zinit wait lucid for \

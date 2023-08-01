@@ -18,11 +18,6 @@ typeset -U manpath
 # ccache
 export CCACHE_DIR="${XDG_CACHE_HOME}/ccache"
 
-# direnv
-if (( $+commands[direnv] )); then
-  source <(direnv hook zsh)
-fi
-
 # GnuPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
