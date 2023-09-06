@@ -41,6 +41,11 @@ fi
 export KREW_ROOT="${XDG_DATA_HOME}/krew"
 path+="${KREW_ROOT}/bin"
 
+# llvm
+if [[ -d '/opt/homebrew/opt/llvm/bin' ]]; then
+  path+='/opt/homebrew/opt/llvm/bin'
+fi
+
 # ncurses
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
