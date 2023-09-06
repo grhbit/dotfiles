@@ -12,6 +12,7 @@ format = """\
   $git_state\
   $git_status\
 
+  $docker_context\
   $kubernetes\
   $nodejs\
   $rust\
@@ -35,6 +36,15 @@ show_milliseconds = true
 disabled = false
 truncation_length = 5
 truncate_to_repo = true
+
+[docker_context]
+disabled = false
+detect_files = [
+  "docker-compose.yml",
+  "docker-compose.yaml",
+  "compose.yaml",
+  "Dockerfile",
+]
 
 [git_branch]
 disabled = false
