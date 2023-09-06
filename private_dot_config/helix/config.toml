@@ -1,0 +1,22 @@
+theme = "rose_pine"
+
+[editor]
+line-number = "relative"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace.render]
+tab = "all"
+space = "all"
+nbsp = "all"
+newline = "none"
+tabpad = "all"
+
+[editor.indent-guides]
+render = true
