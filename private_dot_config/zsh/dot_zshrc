@@ -26,7 +26,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 zinit lucid for \
-  'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh'
 
@@ -92,7 +91,7 @@ zinit as'completion' has'cargo' run-atpull atpull'%atclone' for \
     atclone'cargo install sd' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/starship' as'null' \
-    atclone'cargo install starship; starship init zsh > init.zsh' \
+    atclone'cargo install starship; starship init zsh --print-full-init > init.zsh' \
     src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/tealdeer' \
