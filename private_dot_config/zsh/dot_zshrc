@@ -25,14 +25,13 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit for \
+zinit lucid for \
   'OMZ::lib/history.zsh' \
   'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh' \
-  'romkatv/zsh-prompt-benchmark'
+  'OMZ::lib/completion.zsh'
 
 # cargo
-zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
+zinit as'completion' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/bat' \
     atclone'cargo install bat' \
     'zdharma-continuum/null' \
@@ -85,16 +84,16 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/ripgrep' \
     atclone'cargo install ripgrep' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/rtx-cli' \
+  light-mode id-as'crates/rtx-cli' as'null' \
     atclone'cargo install rtx-cli; rtx activate zsh > init.zsh' \
-    src'init.zsh' \
+    src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/sd' \
     atclone'cargo install sd' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/starship' \
+  light-mode id-as'crates/starship' as'null' \
     atclone'cargo install starship; starship init zsh > init.zsh' \
-    src'init.zsh' \
+    src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/tealdeer' \
     atclone'cargo install tealdeer' \
@@ -105,9 +104,9 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/xh' \
     atclone'cargo install xh' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/zoxide' \
+  light-mode id-as'crates/zoxide' as'null' \
     atclone'cargo install zoxide; zoxide init zsh --no-aliases > init.zsh' \
-    src'init.zsh' \
+    src'init.zsh' compile'init.zsh' \
     atload'alias zi=__zoxide_zi;
            alias z=__zoxide_z;
            alias zq="zoxide query";
@@ -117,7 +116,7 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
 # rtx
 zinit as'null' has'rtx' run-atpull atpull'%atclone' for \
   light-mode id-as'rtx/direnv' \
-    src'init.zsh' \
+    src'init.zsh' compile'init.zsh' \
     atclone'rtx exec --install-missing direnv -- direnv hook zsh > init.zsh' \
     'zdharma-continuum/null'
 
