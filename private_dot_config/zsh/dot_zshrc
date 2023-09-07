@@ -124,8 +124,7 @@ zinit wait lucid for \
   atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
   'zsh-users/zsh-history-substring-search' \
   'zdharma-continuum/history-search-multi-word' \
-  atinit'zpcompinit; zpcdreplay' 'zdharma-continuum/fast-syntax-highlighting' \
-  'MichaelAquilina/zsh-history-filter'
+  atinit'zpcompinit; zpcdreplay' 'zdharma-continuum/fast-syntax-highlighting'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

@@ -1,5 +1,4 @@
 # vi: ft=zsh
-
 # Set GPG_TTY when connected via SSH
 if [[ -n "${SSH_TTY}" || -n "${SSH_CONNECTION}" ]]; then
   export GPG_TTY=$(command tty)
@@ -21,5 +20,3 @@ export LESSHISTFILE=-
 # Node.js
 export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
 
-# zinit - MichaelAquilina/zsh-history-filter
-export HISTORY_FILTER_EXCLUDE=('Bearer' 'youtube-dl')
