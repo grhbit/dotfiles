@@ -2,6 +2,8 @@ theme = "rose_pine"
 
 [editor]
 line-number = "relative"
+cursorline = true
+bufferline = "multiple"
 
 [editor.lsp]
 display-inlay-hints = true
