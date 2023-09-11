@@ -30,7 +30,7 @@ zinit lucid for \
   'OMZ::lib/completion.zsh'
 
 # cargo
-zinit as'completion' has'cargo' run-atpull atpull'%atclone' for \
+zinit as'completion' has'cargo' nocompletions nocompile run-atpull atpull'%atclone' for \
   light-mode id-as'crates/bat' \
     atclone'cargo install bat' \
     'zdharma-continuum/null' \
@@ -119,15 +119,15 @@ zinit as'null' has'rtx' run-atpull atpull'%atclone' for \
     atclone'rtx exec --install-missing direnv -- direnv hook zsh > init.zsh' \
     'zdharma-continuum/null'
 
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 zinit wait lucid for \
-  atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
+  atload'!_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
   'zsh-users/zsh-history-substring-search' \
   'zdharma-continuum/history-search-multi-word' \
   atinit'zpcompinit; zpcdreplay' 'zdharma-continuum/fast-syntax-highlighting'
 
 export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 ## Alias
 alias reload="exec ${SHELL} -o no_global_rcs"
