@@ -30,20 +30,20 @@ zinit lucid for \
   'OMZ::lib/completion.zsh'
 
 # cargo
-zinit as'completion' has'cargo' nocompletions nocompile run-atpull atpull'%atclone' for \
-  light-mode id-as'crates/bat' \
+zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
+  light-mode id-as'crates/bat' cloneonly \
     atclone'cargo install bat' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-edit' \
+  light-mode id-as'crates/cargo-edit' cloneonly \
     atclone'cargo install cargo-edit' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-update' \
+  light-mode id-as'crates/cargo-update' cloneonly \
     atclone'cargo install cargo-update' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-outdated' \
+  light-mode id-as'crates/cargo-outdated' cloneonly \
     atclone'cargo install --locked cargo-outdated' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-watch' \
+  light-mode id-as'crates/cargo-watch' cloneonly \
     atclone'cargo install cargo-watch' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/eza' \
@@ -52,55 +52,55 @@ zinit as'completion' has'cargo' nocompletions nocompile run-atpull atpull'%atclo
            alias ll="ls -l";
            alias la="eza -lbhHigmuSa --time-style=long-iso --git --color-scale"' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/fcp' \
+  light-mode id-as'crates/fcp' cloneonly \
     atclone'cargo install fcp' \
     atload'alias cp=fcp' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/fd-find' \
+  light-mode id-as'crates/fd-find' cloneonly \
     atclone'cargo install fd-find' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/git-delta' \
+  light-mode id-as'crates/git-delta' cloneonly \
     atclone'cargo install git-delta' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/gitui' \
+  light-mode id-as'crates/gitui' cloneonly \
     atclone'cargo install gitui' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/hexyl' \
+  light-mode id-as'crates/hexyl' cloneonly \
     atclone'cargo install hexyl' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/hyperfine' \
+  light-mode id-as'crates/hyperfine' cloneonly \
     atclone'cargo install hyperfine' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/navi' \
+  light-mode id-as'crates/navi' cloneonly \
     atclone'cargo install --locked navi' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/nomino' \
+  light-mode id-as'crates/nomino' cloneonly \
     atclone'cargo install nomino' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/onefetch' \
+  light-mode id-as'crates/onefetch' cloneonly \
     atclone'cargo install onefetch' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/ripgrep' \
+  light-mode id-as'crates/ripgrep' cloneonly \
     atclone'cargo install ripgrep' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/rtx-cli' as'null' \
     atclone'cargo install rtx-cli; rtx activate zsh > init.zsh' \
     src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/sd' \
+  light-mode id-as'crates/sd' cloneonly \
     atclone'cargo install sd' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/starship' as'null' \
     atclone'cargo install starship; starship init zsh --print-full-init > init.zsh' \
     src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/tealdeer' \
+  light-mode id-as'crates/tealdeer' cloneonly \
     atclone'cargo install tealdeer' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/tokei' \
+  light-mode id-as'crates/tokei' cloneonly \
     atclone'cargo install tokei' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/xh' \
+  light-mode id-as'crates/xh' cloneonly \
     atclone'cargo install xh' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/zoxide' as'null' \
