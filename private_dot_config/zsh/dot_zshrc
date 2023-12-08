@@ -46,11 +46,11 @@ zinit as'completion' has'cargo' nocompletions nocompile run-atpull atpull'%atclo
   light-mode id-as'crates/cargo-watch' \
     atclone'cargo install cargo-watch' \
     'zdharma-continuum/null' \
-  light-mode id-as'crates/exa' \
-    atclone'cargo install exa' \
-    atload'alias ls="exa --time-style long-iso";
+  light-mode id-as'crates/eza' \
+    atclone'cargo install eza' \
+    atload'alias ls="eza --time-style long-iso";
            alias ll="ls -l";
-           alias la="exa -lbhHigmuSa --time-style=long-iso --git --color-scale"' \
+           alias la="eza -lbhHigmuSa --time-style=long-iso --git --color-scale"' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/fcp' \
     atclone'cargo install fcp' \
