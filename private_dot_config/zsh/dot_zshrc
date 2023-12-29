@@ -37,6 +37,9 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/cargo-edit' cloneonly \
     atclone'cargo install cargo-edit' \
     'zdharma-continuum/null' \
+  light-mode id-as'crates/cargo-deny' cloneonly \
+    atclone'cargo install cargo-deny' \
+    'zdharma-continuum/null' \
   light-mode id-as'crates/cargo-update' cloneonly \
     atclone'cargo install cargo-update' \
     'zdharma-continuum/null' \
