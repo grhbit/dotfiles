@@ -74,6 +74,10 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
   light-mode id-as'crates/hyperfine' cloneonly \
     atclone'cargo install hyperfine' \
     'zdharma-continuum/null' \
+  light-mode id-as'crates/mise' as'null' \
+    atclone'cargo install mise; mise activate zsh > init.zsh' \
+    src'init.zsh' compile'init.zsh' \
+    'zdharma-continuum/null' \
   light-mode id-as'crates/navi' cloneonly \
     atclone'cargo install --locked navi' \
     'zdharma-continuum/null' \
@@ -85,10 +89,6 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
     'zdharma-continuum/null' \
   light-mode id-as'crates/ripgrep' cloneonly \
     atclone'cargo install ripgrep' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/rtx-cli' as'null' \
-    atclone'cargo install rtx-cli; rtx activate zsh > init.zsh' \
-    src'init.zsh' compile'init.zsh' \
     'zdharma-continuum/null' \
   light-mode id-as'crates/sd' cloneonly \
     atclone'cargo install sd' \
@@ -115,11 +115,11 @@ zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
            alias zqi="zoxide query -i"' \
     'zdharma-continuum/null'
 
-# rtx
-zinit as'null' has'rtx' run-atpull atpull'%atclone' for \
-  light-mode id-as'rtx/direnv' \
+# mise
+zinit as'null' has'mise' run-atpull atpull'%atclone' for \
+  light-mode id-as'mise/direnv' \
     src'init.zsh' compile'init.zsh' \
-    atclone'rtx exec --install-missing direnv -- direnv hook zsh > init.zsh' \
+    atclone'mise exec direnv@latest -- direnv hook zsh > init.zsh' \
     'zdharma-continuum/null'
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
