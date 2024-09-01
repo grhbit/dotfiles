@@ -40,11 +40,6 @@ git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
-## [volta](https://volta.sh)
-```shell
-curl https://get.volta.sh | bash -s -- --skip-setup
-```
-
 ## [Solana](https://solana.com)
 ```shell
 curl --proto '=https' --tlsv1.2 -sSfL https://release.solana.com/stable/install | sh -s -- --no-modify-path stable

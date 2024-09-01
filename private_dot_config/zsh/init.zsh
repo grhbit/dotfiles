@@ -69,12 +69,6 @@ if [[ -d "${SOLANA_BIN}" ]]; then
   path+="${SOLANA_BIN}"
 fi
 
-# volta
-export VOLTA_HOME="${XDG_DATA_HOME}/volta"
-if [[ -d "${VOLTA_HOME}/bin" ]]; then
-  path+="${VOLTA_HOME}/bin"
-fi
-
 path=(
   "${HOME}/.local/bin"
   "${HOME}/.rd/bin"
