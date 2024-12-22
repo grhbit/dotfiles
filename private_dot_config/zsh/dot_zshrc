@@ -17,7 +17,7 @@ bindkey -e
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-HISTFILE="${XDG_STATE_HOME}/zsh/history"
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 setopt EXTENDED_HISTORY
@@ -52,6 +52,16 @@ if (( ! $+commands[rustup] )); then
   install_rustup() {
     wget --https-only -q -O - https://sh.rustup.rs | env - CARGO_HOME=$CARGO_HOME RUSTUP_HOME=$RUSTUP_HOME sh -s -- --no-modify-path
   }
+fi
+
+if (( $+commands[vivid] )); then
+  export LS_COLORS="$(vivid generate rose-pine)"
+fi
+
+if (( $+commands[eza] )); then
+  alias ls="eza --time-style long-iso"
+  alias ll="eza --time-style long-iso -l"
+  alias la="eza --time-style long-iso -lbhHigmuSa"
 fi
 
 source "${ZIM_HOME}/init.zsh"
