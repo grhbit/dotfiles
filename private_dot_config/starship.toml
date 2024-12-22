@@ -1,6 +1,6 @@
 # Starship configurations
 # https://starship.rs/config/
-"$schema" = 'https://starship.rs/config-schema.json'
+#:schema https://starship.rs/config-schema.json
 
 add_newline = false
 format = """\

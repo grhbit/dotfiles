@@ -30,19 +30,6 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY_TIME
 
-# aws-cli
-export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
-export AWS_SHARED_CREDENTIALS_FILE="${XDG_STATE_HOME}/aws/credentials"
-
-# dotnet
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
-# less; Don't save history of less
-export LESSHISTFILE=-
-
-# Node.js
-export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_repl_history"
-
 ZIM_HOME="${XDG_CACHE_HOME}/zim"
 if [[ ! -e "${ZIM_HOME}/zimfw.zsh" ]]; then
   mkdir -p "${ZIM_HOME}" && wget --https-only -nv -O "${ZIM_HOME}/zimfw.zsh" \

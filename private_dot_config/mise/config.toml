@@ -1,10 +1,24 @@
+#:schema https://mise.jdx.dev/schema/mise.json
 [tools]
-direnv = "latest"
+deno = "latest"
 go = "latest"
+node = "lts"
+python = "latest"
+"aqua:astral-sh/ruff" = "latest"
+"aqua:astral-sh/uv" = "latest"
+
+# Essential
+"aqua:ajeetdsouza/zoxide" = "latest"
+"aqua:dandavison/delta" = "latest"
+"aqua:starship/starship" = "latest"
 
 [settings]
-legacy_version_file = true
+idiomatic_version_file = true
 
 always_keep_download = false
 always_keep_install = false
+experimental = true
+disable_backends = ["asdf"]
 
+[settings.pipx]
+uvx = true
