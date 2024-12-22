@@ -1,22 +1,25 @@
-# vi: ft=zsh
-# Set GPG_TTY when connected via SSH
-if [[ -n "${SSH_TTY}" || -n "${SSH_CONNECTION}" ]]; then
-  export GPG_TTY=$(command tty)
+# vim: ft=zsh
+
+umask 0027
+
+if [[ -o interactive ]]; then
+  # Set GPG_TTY when connected via SSH
+  if [[ -n "${SSH_TTY}" || -n "${SSH_CONNECTION}" ]]; then
+    export GPG_TTY=$(command tty)
+  fi
+
+  # aws-cli
+  export AWS_SHARED_CREDENTIALS_FILE="${XDG_STATE_HOME}/aws/credentials"
+  export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+
+  # dotnet
+  export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+  # less
+  export LESSHISTFILE=-
+
+  # Node.js
+  export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
 fi
 
-source "${ZDOTDIR}/init.zsh"
-
-## Other settings for interactive mode
-# aws-cli
-export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
-export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
-
-# dotnet
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
-# less
-export LESSHISTFILE=-
-
-# Node.js
-export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
-
+source "${ZDOTDIR}/path.zsh"

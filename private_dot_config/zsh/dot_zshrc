@@ -1,147 +1,75 @@
-# vi: ft=zsh
-## History
-export HISTFILE="${XDG_DATA_HOME}/zsh/history"
-declare -r HISTFILE
-export HISTSIZE=50000
-export SAVEHIST=20000
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history
-setopt combining_chars
+# vim: ft=zsh
+export TERM="${TERM:-xterm-256color}"
 
-[ -d "${XDG_DATA_HOME}/zsh" ] || mkdir -p "${XDG_DATA_HOME}/zsh"
+if (( $+commands[nvim] )); then
+  export EDITOR='nvim'
+elif (( $+commands[vim] )); then
+  export EDITOR='vim'
+else
+  export EDITOR='nano'
+fi
+export VISUAL="${VISUAL:-$EDITOR}"
 
-## zinit
-declare -A ZINIT
-ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
-ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
-ZINIT[COMPINIT_OPTS]='-C'
+setopt COMBINING_CHARS
+setopt INTERACTIVE_COMMENTS
+bindkey -e
 
-source "${ZINIT_HOME}/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
-zinit lucid for \
-  'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh'
+HISTFILE="${XDG_STATE_HOME}/zsh/history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY_TIME
 
-# cargo
-zinit as'null' has'cargo' run-atpull atpull'%atclone' for \
-  light-mode id-as'crates/bat' cloneonly \
-    atclone'cargo install bat' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-edit' cloneonly \
-    atclone'cargo install cargo-edit' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-deny' cloneonly \
-    atclone'cargo install cargo-deny' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-update' cloneonly \
-    atclone'cargo install cargo-update' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-outdated' cloneonly \
-    atclone'cargo install --locked cargo-outdated' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/cargo-watch' cloneonly \
-    atclone'cargo install cargo-watch' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/eza' \
-    atclone'cargo install eza' \
-    atload'alias ls="eza --time-style long-iso";
-           alias ll="ls -l";
-           alias la="eza -lbhHigmuSa --time-style=long-iso --git --color-scale"' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/fcp' cloneonly \
-    atclone'cargo install fcp' \
-    atload'alias cp=fcp' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/fd-find' cloneonly \
-    atclone'cargo install fd-find' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/git-delta' cloneonly \
-    atclone'cargo install git-delta' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/gitui' cloneonly \
-    atclone'cargo install gitui' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/hexyl' cloneonly \
-    atclone'cargo install hexyl' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/hyperfine' cloneonly \
-    atclone'cargo install hyperfine' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/mise' as'null' \
-    atclone'cargo install mise; mise activate zsh > init.zsh' \
-    src'init.zsh' compile'init.zsh' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/navi' cloneonly \
-    atclone'cargo install --locked navi' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/nomino' cloneonly \
-    atclone'cargo install nomino' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/onefetch' cloneonly \
-    atclone'cargo install onefetch' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/ripgrep' cloneonly \
-    atclone'cargo install ripgrep' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/sd' cloneonly \
-    atclone'cargo install sd' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/starship' as'null' \
-    atclone'cargo install starship; starship init zsh --print-full-init > init.zsh' \
-    src'init.zsh' compile'init.zsh' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/tealdeer' cloneonly \
-    atclone'cargo install tealdeer' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/tokei' cloneonly \
-    atclone'cargo install tokei' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/xh' cloneonly \
-    atclone'cargo install xh' \
-    'zdharma-continuum/null' \
-  light-mode id-as'crates/zoxide' as'null' \
-    atclone'cargo install zoxide; zoxide init zsh --no-aliases > init.zsh' \
-    src'init.zsh' compile'init.zsh' \
-    atload'alias zi=__zoxide_zi;
-           alias z=__zoxide_z;
-           alias zq="zoxide query";
-           alias zqi="zoxide query -i"' \
-    'zdharma-continuum/null'
+# aws-cli
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_STATE_HOME}/aws/credentials"
 
-# mise
-zinit as'null' has'mise' run-atpull atpull'%atclone' for \
-  light-mode id-as'mise/direnv' \
-    src'init.zsh' compile'init.zsh' \
-    atclone'mise exec direnv@latest -- direnv hook zsh > init.zsh' \
-    'zdharma-continuum/null'
+# dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# less; Don't save history of less
+export LESSHISTFILE=-
 
-zinit wait lucid for \
-  atload'!_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
-  'zsh-users/zsh-history-substring-search' \
-  'zdharma-continuum/history-search-multi-word' \
-  atinit'zpcompinit; zpcdreplay' 'zdharma-continuum/fast-syntax-highlighting'
+# Node.js
+export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_repl_history"
 
-export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
+ZIM_HOME="${XDG_CACHE_HOME}/zim"
+if [[ ! -e "${ZIM_HOME}/zimfw.zsh" ]]; then
+  mkdir -p "${ZIM_HOME}" && wget --https-only -nv -O "${ZIM_HOME}/zimfw.zsh" \
+    'https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh'
+fi
 
-## Alias
-alias reload="exec ${SHELL} -o no_global_rcs"
-alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
-alias vi='nvim'
-alias vim='nvim'
-alias vimdiff='nvim -d'
-alias gst='git status'
-alias gc='git commit --verbose'
-alias gcd='git checkout develop'
-alias gcm='git checkout master'
+if [[ ! -e "${ZIM_HOME}/init.zsh" ]]; then
+  source "${ZIM_HOME}/zimfw.zsh" init -q
+fi
+
+if (( $+commands[mise] )); then
+  source <(mise activate zsh)
+else
+  install_mise() {
+    wget --https-only -q -O - https://mise.run | sh
+  }
+fi
+
+if (( ! $+commands[rustup] )); then
+  install_rustup() {
+    wget --https-only -q -O - https://sh.rustup.rs | env - CARGO_HOME=$CARGO_HOME RUSTUP_HOME=$RUSTUP_HOME sh -s -- --no-modify-path
+  }
+fi
+
+source "${ZIM_HOME}/init.zsh"
+FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
+
 alias -g ...='../..'
 alias -g ....='../../..'
 

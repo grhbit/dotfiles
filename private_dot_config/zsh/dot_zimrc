@@ -1,0 +1,29 @@
+# vi: ft=zsh
+
+zmodule starship-init --use mkdir --if-command starship \
+  --cmd 'if [[ ! {}/init.zsh -nt ${commands[starship]} ]]; then
+    starship init --print-full-init zsh > {}/init.zsh
+    zcompile -UR {}/init.zsh
+  fi' \
+  --source init.zsh
+
+zmodule zoxide-init --use mkdir --if-command zoxide \
+  --cmd 'if [[ ! {}/init.zsh -nt ${commands[zoxide]} ]]; then
+    zoxide init --no-cmd zsh > {}/init.zsh
+    zcompile -UR {}/init.zsh
+  fi' \
+  --source init.zsh
+
+zmodule atuin-init --use mkdir --if-command atuin \
+  --cmd 'if [[ ! {}/init.zsh -nt ${commands[atuin]} ]]; then
+    atuin init zsh > {}/init.zsh
+    zcompile -UR {}/init.zsh
+  fi' \
+  --source init.zsh
+zmodule zdharma-continuum/history-search-multi-word --use degit --if '(( ! ${+commands[atuin]} ))'
+
+zmodule zsh-users/zsh-completions --use degit --fpath src
+zmodule completion --use degit
+zmodule zsh-users/zsh-autosuggestions --use degit
+zmodule zsh-users/zsh-history-substring-search --use degit
+zmodule zsh-users/zsh-syntax-highlighting --use degit
