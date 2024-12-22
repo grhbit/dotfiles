@@ -29,12 +29,6 @@ exit # or reload zsh configs (including zshenv)
 ```
 
 # Installation
-## [zinit](https://github.com/zdharma-continuum/zinit.git)
-```shell
-mkdir -p "$(dirname $ZINIT_HOME)"
-git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-```
-
 ## [vim-plug](https://github.com/junegunn/vim-plug)
 ```shell
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -67,13 +61,6 @@ gpg --import public.pgp
 ```
 
 # Needs to update periodically
-
-## [zinit](https://github.com/zdharma/zinit)
-```shell
-zinit self-update
-zinit update --all
-zinit delete --clean && zinit cclear # cleanup unused plugins
-```
 
 ## [rustup](https://rustup.rs)
 ```shell
