@@ -1,10 +1,6 @@
 skip_global_compinit=1
 setopt NO_GLOBAL_RCS
 
-export LANG="${LANG:-en_US.UTF-8}"
-export LC_ALL="${LC_ALL:-en_US.UTF-8}"
-export LANGUAGE="${LANGUAGE:-en_US:en}"
-
 ## XDG Setup
 # XDG Base Directory supports
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
@@ -12,6 +8,19 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
+
+export LANGUAGE="${LANGUAGE:-en_US:en}"
+case "$OSTYPE" in
+  darwin*)
+    export LANG="${LANG:-en_US.UTF-8}"
+    export LC_ALL="${LC_ALL:-en_US.UTF-8}"
+    export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-${TMPDIR%/}}"
+    ;;
+  *)
+    export LANG="${LANG:-C.UTF-8}"
+    export LC_ALL="${LC_ALL:-C.UTF-8}"
+    ;;
+esac
 
 export ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 
