@@ -14,13 +14,16 @@ zmodule zoxide-init --use mkdir --if-command zoxide \
   fi' \
   --source init.zsh
 
-zmodule atuin-init --use mkdir --if-command atuin \
-  --cmd 'if [[ ! {}/init.zsh -nt ${commands[atuin]} ]]; then
-    atuin init zsh > {}/init.zsh
-    zcompile -UR {}/init.zsh
-  fi' \
-  --source init.zsh
-zmodule zdharma-continuum/history-search-multi-word --use degit --if '(( ! ${+commands[atuin]} ))'
+if (( ${+commands[atuin]} )); then
+  zmodule atuin-init --use mkdir --if-command atuin \
+    --cmd 'if [[ ! {}/init.zsh -nt ${commands[atuin]} ]]; then
+      atuin init --disable-up-arrow zsh > {}/init.zsh
+      zcompile -UR {}/init.zsh
+    fi' \
+    --source init.zsh
+else
+  zmodule zdharma-continuum/history-search-multi-word --use degit
+fi
 
 zmodule zsh-users/zsh-completions --use degit --fpath src
 zmodule completion --use degit
