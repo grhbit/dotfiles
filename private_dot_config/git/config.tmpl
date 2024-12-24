@@ -1,8 +1,7 @@
-# vi: ft=gitconfig
+# vim: ft=gitconfig
 [user]
     email = {{ .email }}
     name = {{ .name }}
-    signingkey = {{ .signingkey }}
 
 [core]
     precomposeunicode = true
@@ -12,9 +11,6 @@
 
 [interactive]
     diffFilter = delta --color-only
-
-[commit]
-    gpgsign = true
 
 [log]
     date = iso
@@ -28,3 +24,9 @@
 [delta]
     features = side-by-side line-numbers decorations
     syntax-theme = gruvbox-dark
+
+[diff]
+    algorithm = histogram
+
+[merge]
+    conflictstyle = zdiff3

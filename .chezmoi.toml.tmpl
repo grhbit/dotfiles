@@ -1,8 +1,10 @@
-# vi: ft=toml
-{{ $email := promptString "email" -}}
-{{ $name := promptString "name" -}}
-{{ $signingkey := promptString "signingkey" -}}
+# vim: ft=toml
+{{ $email := promptStringOnce "email" -}}
+{{ $name := promptStringOnce "name" -}}
+
 [data]
 email = "{{ $email }}"
 name = "{{ $name }}"
-signingkey = "{{ $signingkey }}"
+
+[update]
+apply = false
