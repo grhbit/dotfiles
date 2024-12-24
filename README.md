@@ -3,46 +3,21 @@
 OS: macOS, Arch Linux
 
 # Prerequisites
-
-## [Homebrew](https://brew.sh)
-**macOS**
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-
-## [paru](https://github.com/Morganamilo/paru)
-**Arch Linux**
-```shell
-pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-```
-
-## [chezmoi](https://www.chezmoi.io)
-```shell
-brew install chezmoi # on macOS
-paru -S chezmoi # on Arch Linux
-
-chezmoi init https://github.com/username/dotfiles.git
-exit # or reload zsh configs (including zshenv)
-```
+- zsh
+- curl
 
 # Installation
-## [vim-plug](https://github.com/junegunn/vim-plug)
+
+## [chezmoi](https://www.chezmoi.io)
+
 ```shell
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init \
+  --promptString email="g.passcode@gmail.com" \
+  --promptString name="Gwon Seonggwang" \
+  --apply https://github.com/grhbit/dotfiles.git
 ```
 
-## [Solana](https://solana.com)
-```shell
-curl --proto '=https' --tlsv1.2 -sSfL https://release.solana.com/stable/install | sh -s -- --no-modify-path stable
-```
-
-## [rustup](https://rustup.rs)
-```shell
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
-```
+# Misc
 
 ## [Keybase](https://keybase.io) or GnuPG
 ```shell
@@ -60,34 +35,7 @@ gpg --import private.pgp
 gpg --import public.pgp
 ```
 
-# Needs to update periodically
-
-## [rustup](https://rustup.rs)
-```shell
-rustup update
-```
-
-## [neovim](https://github.com/neovim/neovim)
-```shell
-nvim +PlugUpgrade +PlugUpdate +CocUpdate # +qall (if needed)
-```
-
-## [Homebrew](https://brew.sh)
-**macOS**
-```shell
-brew update && brew upgrade && brew upgrade --cask
-```
-
-## [paru](https://github.com/Morganamilo/paru)
-**Arch Linux**
-```shell
-paru
-```
-
 # TODO
-- Add scripts
-    - Make `$XDG_DATA_HOME/zsh` directory for history
-    - Install tools using paru
 - Setup age ~~gpg~~
 - Separate between headless and desktop environment.
 - Support XDG Base Directory of JetBrains products and Gradle.
