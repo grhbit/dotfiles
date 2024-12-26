@@ -26,6 +26,7 @@ export ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}"
 
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
 if [[ $SHLVL -eq 1 && ! -o LOGIN && -s "${ZDOTDIR}/path.zsh" ]]; then
   source "${ZDOTDIR}/path.zsh"
