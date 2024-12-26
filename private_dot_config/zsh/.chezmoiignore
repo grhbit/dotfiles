@@ -1,0 +1,6 @@
+.zsh_sessions
+*.zcompdump
+*.zcompdump.dat
+*.zwc
+*.local
+*.local.zsh
