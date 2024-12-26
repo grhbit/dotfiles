@@ -67,6 +67,9 @@ fi
 source "${ZIM_HOME}/init.zsh"
 FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
 
+alias reload="exec \"${SHELL}\""
+alias gc='git commit --verbose'
+alias gst='git status'
 alias -g ...='../..'
 alias -g ....='../../..'
 

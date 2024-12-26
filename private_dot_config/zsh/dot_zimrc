@@ -9,7 +9,7 @@ zmodule starship-init --use mkdir --if-command starship \
 
 zmodule zoxide-init --use mkdir --if-command zoxide \
   --cmd 'if [[ ! {}/init.zsh -nt ${commands[zoxide]} ]]; then
-    zoxide init --no-cmd zsh > {}/init.zsh
+    zoxide init zsh > {}/init.zsh
     zcompile -UR {}/init.zsh
   fi' \
   --source init.zsh
