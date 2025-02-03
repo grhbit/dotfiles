@@ -1,1 +1,10 @@
 README.md
+
+{{ if eq .chezmoi.os "windows" }}
+.zshenv
+.config/zsh
+.config/iterm2
+.config/Brewfile
+.local/share/zsh
+.local/state/zsh
+{{ end }}

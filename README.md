@@ -1,10 +1,11 @@
 ***Managed by chezmoi***
 
-OS: macOS, Arch Linux
+OS: macOS, Arch Linux, Windows 11
 
 # Prerequisites
 - zsh
 - curl
+- pwsh (windows)
 
 # Installation
 
